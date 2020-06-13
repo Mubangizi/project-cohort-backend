@@ -177,6 +177,165 @@
             }
           }
         }
+      },
+      "/tasks": {
+        "get": {
+          "tags": [
+            "tasks"
+          ],
+          "summary": "Gets all Tasks",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully gets Tasks"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "tasks"
+          ],
+          "summary": "Adds a new task",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "Task params",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/task"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully added a new Task"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        }
+      },
+
+      "/tasks/{task_id}":{
+        "get": {
+          "tags": [
+            "tasks"
+          ],
+          "summary": "Gets a single task",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "task_id",
+              "required": true
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully gets a single Task"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "404": {
+              "description": "Resource not found"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        },
+        "patch": {
+          "tags": [
+            "tasks"
+          ],
+          "summary": "Updates an existing task",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "task_id",
+              "required": true
+            },
+            {
+              "in": "body",
+              "name": "Task params",
+              "required": false,
+              "schema": {
+                "$ref": "#/definitions/task"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully updates existing Post"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "404": {
+              "description": "Resource not found"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "tasks"
+          ],
+          "summary": "Deletes single task",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "task_id",
+              "required": true
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully deleted Task"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "404": {
+              "description": "Resource not found"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        }
       }
   },
 
@@ -199,6 +358,23 @@
           "salary": {
             "type": "integer",
             "example": 100000
+          }
+        }
+      },
+      
+      "task": {
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "task name"
+          },
+          "description": {
+            "type": "string",
+            "example": "task decription"
           }
         }
       }
