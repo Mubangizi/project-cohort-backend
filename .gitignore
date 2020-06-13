@@ -5,4 +5,4 @@ venv/
 .coverage
 .vscode/
 .DS_Store
-empty.py
+empty.json

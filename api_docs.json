@@ -495,7 +495,168 @@
             }
           }
         }
+      },
+      "/sales": {
+        "get": {
+          "tags": [
+            "sales"
+          ],
+          "summary": "Gets all Sales",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully gets Sales"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "sales"
+          ],
+          "summary": "Adds a new sale",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "Sale params",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/sale"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully added a new Sale"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        }
+      },
+
+      "/sales/{sale_id}":{
+        "get": {
+          "tags": [
+            "sales"
+          ],
+          "summary": "Gets a single sale",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "sale_id",
+              "required": true
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully gets a single Sale"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "404": {
+              "description": "Resource not found"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        },
+        "patch": {
+          "tags": [
+            "sales"
+          ],
+          "summary": "Updates an existing sale",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "sale_id",
+              "required": true
+            },
+            {
+              "in": "body",
+              "name": "Sale params",
+              "required": false,
+              "schema": {
+                "$ref": "#/definitions/sale"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully updates existing Post"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "404": {
+              "description": "Resource not found"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "sales"
+          ],
+          "summary": "Deletes single sale",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "sale_id",
+              "required": true
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully deleted Sale"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "404": {
+              "description": "Resource not found"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        }
       }
+
+      
 
   },
 
@@ -559,6 +720,28 @@
             "example": 20
           },
           "salary": {
+            "type": "integer",
+            "example": 100000
+          }
+        }
+      },
+      "sale": {
+        "type": "object",
+        "required": [
+          "product",
+          "quantity",
+          "amount"
+        ],
+        "properties": {
+          "product": {
+            "type": "string",
+            "example": "sale product"
+          },
+          "quantity": {
+            "type": "integer",
+            "example": 10
+          },
+          "amount": {
             "type": "integer",
             "example": 100000
           }
