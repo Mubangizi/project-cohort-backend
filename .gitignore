@@ -1,0 +1,8 @@
+__pycache__/
+venv/
+.env
+*.pyc
+.coverage
+.vscode/
+.DS_Store
+empty.py
