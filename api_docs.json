@@ -336,7 +336,167 @@
             }
           }
         }
+      },
+      "/consultants": {
+        "get": {
+          "tags": [
+            "consultants"
+          ],
+          "summary": "Gets all Consultants",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully gets Consultants"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "consultants"
+          ],
+          "summary": "Adds a new consultant",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "Consultant params",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/consultant"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully added a new Consultant"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        }
+      },
+
+      "/consultants/{consultant_id}":{
+        "get": {
+          "tags": [
+            "consultants"
+          ],
+          "summary": "Gets a single consultant",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "consultant_id",
+              "required": true
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully gets a single Consultant"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "404": {
+              "description": "Resource not found"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        },
+        "patch": {
+          "tags": [
+            "consultants"
+          ],
+          "summary": "Updates an existing consultant",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "consultant_id",
+              "required": true
+            },
+            {
+              "in": "body",
+              "name": "Consultant params",
+              "required": false,
+              "schema": {
+                "$ref": "#/definitions/consultant"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully updates existing Post"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "404": {
+              "description": "Resource not found"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "consultants"
+          ],
+          "summary": "Deletes single consultant",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "consultant_id",
+              "required": true
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully deleted Consultant"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "404": {
+              "description": "Resource not found"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        }
       }
+
   },
 
   "definitions": {
@@ -375,6 +535,32 @@
           "description": {
             "type": "string",
             "example": "task decription"
+          }
+        }
+      },
+
+      "consultant": {
+        "type": "object",
+        "required": [
+          "name",
+          "field"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "consultant name"
+          },
+          "field": {
+            "type": "string",
+            "example": "consultant field"
+          },
+          "age": {
+            "type": "integer",
+            "example": 20
+          },
+          "salary": {
+            "type": "integer",
+            "example": 100000
           }
         }
       }

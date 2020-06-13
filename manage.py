@@ -6,6 +6,7 @@ from server import app
 # import models
 from app.models.employee import Employee
 from app.models.task import Task
+from app.models.consultant import Consultant
 
 
 # register app and db with migration class
