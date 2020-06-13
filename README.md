@@ -25,7 +25,7 @@ create virtual enviroment called venv
 
 Run `virtualenv venv`
 
-Activate the virtual environment.
+##### Activate the virtual environment.
 
 Run `. venv/bin/activate`
 
@@ -33,10 +33,11 @@ App was developed with `Python 3.6`.
 
 Make sure you have `pip` installed on your machine.
 
-Install the dependencies.
+##### Install the dependencies.
 
 `pip install -r requirements.txt`
 
+##### Create a .env file
 Create a `.env` file (which defines the environment variables used) at the root of the app.
 
 Add the following details, customizing as needed.
@@ -47,7 +48,9 @@ export FLASK_ENV=development
 export FLASK_RUN_PORT=5000
 ```
 
-Run the application.
+##### Run Application
+ 
+Run the application with this command
 
 `flask run`
 
