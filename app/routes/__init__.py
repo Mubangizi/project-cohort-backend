@@ -1,7 +1,7 @@
 from flask_restful import Api
 from app.controllers import (IndexView, EmployeeView, EmployeeDetailView,
       TaskView, TaskDetailView, ConsultantView, ConsultantDetailView,
-      SaleView, SaleDetailView)
+      SaleView, SaleDetailView, CourseView, CourseDetailView)
 
 
 
@@ -21,3 +21,6 @@ api.add_resource(ConsultantDetailView, '/consultants/<int:consultant_id>')
 # sales
 api.add_resource(SaleView, '/sales', endpoint='sales')
 api.add_resource(SaleDetailView, '/sales/<int:sale_id>')
+# courses
+api.add_resource(CourseView, '/courses', endpoint='courses')
+api.add_resource(CourseDetailView, '/courses/<int:course_id>')

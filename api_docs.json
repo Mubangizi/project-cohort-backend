@@ -654,8 +654,166 @@
             }
           }
         }
-      }
+      },
+      "/courses": {
+        "get": {
+          "tags": [
+            "courses"
+          ],
+          "summary": "Gets all Courses",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully gets Courses"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "courses"
+          ],
+          "summary": "Adds a new course",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "Course params",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/course"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully added a new Course"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        }
+      },
 
+      "/courses/{course_id}":{
+        "get": {
+          "tags": [
+            "courses"
+          ],
+          "summary": "Gets a single course",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "course_id",
+              "required": true
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully gets a single Course"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "404": {
+              "description": "Resource not found"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        },
+        "patch": {
+          "tags": [
+            "courses"
+          ],
+          "summary": "Updates an existing course",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "course_id",
+              "required": true
+            },
+            {
+              "in": "body",
+              "name": "Course params",
+              "required": false,
+              "schema": {
+                "$ref": "#/definitions/course"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully updates existing Post"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "404": {
+              "description": "Resource not found"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "courses"
+          ],
+          "summary": "Deletes single course",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "course_id",
+              "required": true
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully deleted Course"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "404": {
+              "description": "Resource not found"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        }
+      }
       
 
   },
@@ -744,6 +902,29 @@
           "amount": {
             "type": "integer",
             "example": 100000
+          }
+        }
+      },
+
+      "course": {
+        "type": "object",
+        "required": [
+          "name",
+          "code",
+          "lecturer"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "course name"
+          },
+          "code": {
+            "type": "string",
+            "example": "CO105"
+          },
+          "lecturer": {
+            "type": "string",
+            "example": "Mr Lecturer"
           }
         }
       }
