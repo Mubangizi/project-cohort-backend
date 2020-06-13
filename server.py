@@ -5,7 +5,7 @@ from flask_cors import CORS
 
 from app.routes import api
 
-# from app.models import db
+from app.models import db
 
 
 def create_app(config_name):
@@ -24,7 +24,7 @@ def create_app(config_name):
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     # register app with the db
-    # db.init_app(app)
+    db.init_app(app)
 
     # initialize api resources
     api.init_app(app)

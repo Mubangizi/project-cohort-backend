@@ -9,7 +9,7 @@ class Development(Base):
     """ development config """
 
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = "postgresql:///cohord_db"
+    SQLALCHEMY_DATABASE_URI = "postgresql:///cohort_db"
 
 
 class Testing(Base):
