@@ -2,7 +2,7 @@ import os
 
 from flask import Flask, jsonify
 from flask_cors import CORS
-
+from flasgger import Swagger
 from app.routes import api
 
 from app.models import db
@@ -28,6 +28,15 @@ def create_app(config_name):
 
     # initialize api resources
     api.init_app(app)
+
+    # swagger
+    app.config['SWAGGER'] = {
+        'title': 'Project Cohort backend API',
+        'uiversion': 3
+    }
+
+    Swagger(app, template_file='api_docs.json')
+
 
     # handle default 404 exceptions with a custom response
     @app.errorhandler(404)

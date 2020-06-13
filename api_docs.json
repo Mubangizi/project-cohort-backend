@@ -1,0 +1,206 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Project Cohort backend API",
+    "description": "Api for Cohort",
+    "version": "1.0.0",
+    "contact": {
+      "email": "mubangizia22@gmail.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "tags": {
+      "name": "employees"
+    },
+  "basePath": "/",
+
+  "paths": {
+
+      "/employees": {
+        "get": {
+          "tags": [
+            "employees"
+          ],
+          "summary": "Gets all Employees",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully gets Employees"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "employees"
+          ],
+          "summary": "Adds a new employee",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "Employee params",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/employee"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully added a new Employee"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        }
+      },
+
+      "/employees/{employee_id}":{
+        "get": {
+          "tags": [
+            "employees"
+          ],
+          "summary": "Gets a single employee",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "employee_id",
+              "required": true
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully gets a single Employee"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "404": {
+              "description": "Resource not found"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        },
+        "patch": {
+          "tags": [
+            "employees"
+          ],
+          "summary": "Updates an existing employee",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "employee_id",
+              "required": true
+            },
+            {
+              "in": "body",
+              "name": "Employee params",
+              "required": false,
+              "schema": {
+                "$ref": "#/definitions/employee"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully updates existing Post"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "404": {
+              "description": "Resource not found"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "employees"
+          ],
+          "summary": "Deletes single employee",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "employee_id",
+              "required": true
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully deleted Employee"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "404": {
+              "description": "Resource not found"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        }
+      }
+  },
+
+  "definitions": {
+      "employee": {
+        "type": "object",
+        "required": [
+          "name",
+          "salary"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "employee name"
+          },
+          "age": {
+            "type": "string",
+            "example": 20
+          },
+          "salary": {
+            "type": "integer",
+            "example": 100000
+          }
+        }
+      }
+  }
+}  
