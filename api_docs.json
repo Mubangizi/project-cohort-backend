@@ -12,9 +12,6 @@
       "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
     }
   },
-  "tags": {
-      "name": "employees"
-    },
   "basePath": "/",
 
   "paths": {
@@ -495,7 +492,486 @@
             }
           }
         }
+      },
+      "/sales": {
+        "get": {
+          "tags": [
+            "sales"
+          ],
+          "summary": "Gets all Sales",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully gets Sales"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "sales"
+          ],
+          "summary": "Adds a new sale",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "Sale params",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/sale"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully added a new Sale"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        }
+      },
+
+      "/sales/{sale_id}":{
+        "get": {
+          "tags": [
+            "sales"
+          ],
+          "summary": "Gets a single sale",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "sale_id",
+              "required": true
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully gets a single Sale"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "404": {
+              "description": "Resource not found"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        },
+        "patch": {
+          "tags": [
+            "sales"
+          ],
+          "summary": "Updates an existing sale",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "sale_id",
+              "required": true
+            },
+            {
+              "in": "body",
+              "name": "Sale params",
+              "required": false,
+              "schema": {
+                "$ref": "#/definitions/sale"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully updates existing Post"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "404": {
+              "description": "Resource not found"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "sales"
+          ],
+          "summary": "Deletes single sale",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "sale_id",
+              "required": true
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully deleted Sale"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "404": {
+              "description": "Resource not found"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        }
+      },
+      "/courses": {
+        "get": {
+          "tags": [
+            "courses"
+          ],
+          "summary": "Gets all Courses",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully gets Courses"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "courses"
+          ],
+          "summary": "Adds a new course",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "Course params",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/course"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully added a new Course"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        }
+      },
+
+      "/courses/{course_id}":{
+        "get": {
+          "tags": [
+            "courses"
+          ],
+          "summary": "Gets a single course",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "course_id",
+              "required": true
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully gets a single Course"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "404": {
+              "description": "Resource not found"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        },
+        "patch": {
+          "tags": [
+            "courses"
+          ],
+          "summary": "Updates an existing course",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "course_id",
+              "required": true
+            },
+            {
+              "in": "body",
+              "name": "Course params",
+              "required": false,
+              "schema": {
+                "$ref": "#/definitions/course"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully updates existing Post"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "404": {
+              "description": "Resource not found"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "courses"
+          ],
+          "summary": "Deletes single course",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "course_id",
+              "required": true
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully deleted Course"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "404": {
+              "description": "Resource not found"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        }
+      },
+      
+      "/accounts": {
+        "get": {
+          "tags": [
+            "accounts"
+          ],
+          "summary": "Gets all Accounts",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully gets Accounts"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "accounts"
+          ],
+          "summary": "Adds a new account",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "Account params",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/account"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully added a new Account"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        }
+      },
+      
+      "/accounts/{account_id}":{
+        "get": {
+          "tags": [
+            "accounts"
+          ],
+          "summary": "Gets a single account",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "account_id",
+              "required": true
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully gets a single Account"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "404": {
+              "description": "Resource not found"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        },
+        "patch": {
+          "tags": [
+            "accounts"
+          ],
+          "summary": "Updates an existing account",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "account_id",
+              "required": true
+            },
+            {
+              "in": "body",
+              "name": "Account params",
+              "required": false,
+              "schema": {
+                "$ref": "#/definitions/account"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully updates existing Post"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "404": {
+              "description": "Resource not found"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "accounts"
+          ],
+          "summary": "Deletes single account",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "account_id",
+              "required": true
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully deleted Account"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "404": {
+              "description": "Resource not found"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        }
       }
+
 
   },
 
@@ -561,6 +1037,74 @@
           "salary": {
             "type": "integer",
             "example": 100000
+          }
+        }
+      },
+      "sale": {
+        "type": "object",
+        "required": [
+          "product",
+          "quantity",
+          "amount"
+        ],
+        "properties": {
+          "product": {
+            "type": "string",
+            "example": "sale product"
+          },
+          "quantity": {
+            "type": "integer",
+            "example": 10
+          },
+          "amount": {
+            "type": "integer",
+            "example": 100000
+          }
+        }
+      },
+
+      "course": {
+        "type": "object",
+        "required": [
+          "name",
+          "code",
+          "lecturer"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "course name"
+          },
+          "code": {
+            "type": "string",
+            "example": "CO105"
+          },
+          "lecturer": {
+            "type": "string",
+            "example": "Mr Lecturer"
+          }
+        }
+      },
+
+      "account": {
+        "type": "object",
+        "required": [
+          "name",
+          "number",
+          "bank"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "account name"
+          },
+          "number": {
+            "type": "integer",
+            "example": "133331315"
+          },
+          "bank": {
+            "type": "string",
+            "example": "accounts bank"
           }
         }
       }

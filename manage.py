@@ -7,6 +7,9 @@ from server import app
 from app.models.employee import Employee
 from app.models.task import Task
 from app.models.consultant import Consultant
+from app.models.sale import Sale
+from app.models.course import Course
+from app.models.account import Account
 
 
 # register app and db with migration class
