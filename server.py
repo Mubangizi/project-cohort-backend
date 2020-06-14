@@ -24,6 +24,7 @@ def create_app(config_name):
 
     # register app with the db
     db.init_app(app)
+    print(app.config_name)
 
     # initialize api resources
     api.init_app(app)
