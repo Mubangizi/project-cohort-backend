@@ -25,7 +25,7 @@ class Production(Base):
     """ production config """
 
     DEBUG = False
-    SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_URI")
+    SQLALCHEMY_DATABASE_URI = os.getenv("postgres://piphnntiovpksk:1181ae1a6858f6e1e1daf8ebd570fca784e2daf79d36d98f06cdadf8db1c020e@ec2-34-198-243-120.compute-1.amazonaws.com:5432/dd386774tg2nab")
 
 
 app_config = {"development": Development, "testing": Testing, "production": Production}
