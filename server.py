@@ -4,11 +4,8 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 from flasgger import Swagger
 from app.routes import api
-from dotenv import load_dotenv
 
 from app.models import db
-
-load_dotenv()
 
 def create_app(config_name):
     """ app factory """
