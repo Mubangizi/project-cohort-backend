@@ -7,7 +7,6 @@ from app.routes import api
 
 from app.models import db
 
-
 def create_app(config_name):
     """ app factory """
 
@@ -25,7 +24,6 @@ def create_app(config_name):
 
     # register app with the db
     db.init_app(app)
-
     # initialize api resources
     api.init_app(app)
 
@@ -64,7 +62,7 @@ def create_app(config_name):
 
 
 # create app instance using running config
-app = create_app(os.getenv('FLASK_ENV'))
+app = create_app(os.getenv('FLASK_ENV') or 'production')
 
 if __name__ == '__main__':
     app.run()
