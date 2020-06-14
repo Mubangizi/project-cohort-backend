@@ -11,6 +11,9 @@ class Development(Base):
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = "postgresql:///cohort_db"
 
+from dotenv import load_dotenv
+
+load_dotenv()
 
 class Testing(Base):
     """ test environment config """
