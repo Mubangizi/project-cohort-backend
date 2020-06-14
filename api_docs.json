@@ -970,6 +970,165 @@
             }
           }
         }
+      },
+      "/businesses": {
+        "get": {
+          "tags": [
+            "businesss"
+          ],
+          "summary": "Gets all Businesss",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully gets Businesss"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "businesss"
+          ],
+          "summary": "Adds a new business",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "Business params",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/business"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully added a new Business"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        }
+      },
+      
+      "/businesses/{business_id}":{
+        "get": {
+          "tags": [
+            "businesss"
+          ],
+          "summary": "Gets a single business",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "business_id",
+              "required": true
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully gets a single Business"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "404": {
+              "description": "Resource not found"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        },
+        "patch": {
+          "tags": [
+            "businesss"
+          ],
+          "summary": "Updates an existing business",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "business_id",
+              "required": true
+            },
+            {
+              "in": "body",
+              "name": "Business params",
+              "required": false,
+              "schema": {
+                "$ref": "#/definitions/business"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully updates existing Post"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "404": {
+              "description": "Resource not found"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "businesss"
+          ],
+          "summary": "Deletes single business",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "business_id",
+              "required": true
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully deleted Business"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "404": {
+              "description": "Resource not found"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        }
       }
 
 
@@ -1107,6 +1266,28 @@
             "example": "accounts bank"
           }
         }
+      },
+      "business": {
+        "type": "object",
+        "required": [
+          "name",
+          "business_type"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "business name"
+          },
+          "business_type": {
+            "type": "integer",
+            "example": "business type"
+          },
+          "age": {
+            "type": "string",
+            "example": "20 years"
+          }
+        }
       }
+
   }
 }  
