@@ -5,4 +5,5 @@ from .sale import SaleSchema
 from .course import CourseSchema
 from .account import AccountSchema
 from .business import BusinessSchema
+from .user import UserSchema
 

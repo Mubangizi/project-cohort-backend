@@ -35,19 +35,19 @@ class BusinessView(Resource):
     # @jwt_required
     def get(self):
         """
-        Getting All businesss
+        Getting All businesses
         """
 
         business_schema = BusinessSchema(many=True)
 
-        businesss = Business.find_all()
+        businesses = Business.find_all()
 
-        businesss_data, errors = business_schema.dumps(businesss)
+        businesses_data, errors = business_schema.dumps(businesses)
 
         if errors:
             return dict(status="fail", message="Internal Server Error"), 500
 
-        return dict(status="success", data=dict(businesss=json.loads(businesss_data))), 200
+        return dict(status="success", data=dict(businesses=json.loads(businesses_data))), 200
 
 
 class BusinessDetailView(Resource):

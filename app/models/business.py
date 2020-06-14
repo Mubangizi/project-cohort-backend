@@ -8,9 +8,9 @@ from app.models.root_model import RootModel
 class Business(RootModel):
     """ business table definition """
 
-    _tablename_ = "businesss"
+    _tablename_ = "businesses"
 
-    # fields of the businesss table
+    # fields of the businesses table
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(256), nullable=False, default="")
     business_type = db.Column(db.String(256), nullable=False, default="")
