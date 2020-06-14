@@ -974,15 +974,15 @@
       "/businesses": {
         "get": {
           "tags": [
-            "businesss"
+            "businesses"
           ],
-          "summary": "Gets all Businesss",
+          "summary": "Gets all Businesses",
           "produces": [
             "application/json"
           ],
           "responses": {
             "201": {
-              "description": "Successfully gets Businesss"
+              "description": "Successfully gets Businesses"
             },
             "401": {
               "description": "invalid input, object invalid"
@@ -994,7 +994,7 @@
         },
         "post": {
           "tags": [
-            "businesss"
+            "businesses"
           ],
           "summary": "Adds a new business",
           "consumes": [
@@ -1030,7 +1030,7 @@
       "/businesses/{business_id}":{
         "get": {
           "tags": [
-            "businesss"
+            "businesses"
           ],
           "summary": "Gets a single business",
           "produces": [
@@ -1060,7 +1060,7 @@
         },
         "patch": {
           "tags": [
-            "businesss"
+            "businesses"
           ],
           "summary": "Updates an existing business",
           "consumes": [
@@ -1101,7 +1101,7 @@
         },
         "delete": {
           "tags": [
-            "businesss"
+            "businesses"
           ],
           "summary": "Deletes single business",
           "produces": [
@@ -1288,8 +1288,166 @@
             }
           }
         }
-      }
-           
+      },
+      "/tickets": {
+        "get": {
+          "tags": [
+            "tickets"
+          ],
+          "summary": "Gets all Tickets",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully gets Tickets"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "tickets"
+          ],
+          "summary": "Adds a new ticket",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "Ticket params",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/ticket"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully added a new Ticket"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        }
+      },
+      
+      "/tickets/{ticket_id}":{
+        "get": {
+          "tags": [
+            "tickets"
+          ],
+          "summary": "Gets a single ticket",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "ticket_id",
+              "required": true
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully gets a single Ticket"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "404": {
+              "description": "Resource not found"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        },
+        "patch": {
+          "tags": [
+            "tickets"
+          ],
+          "summary": "Updates an existing ticket",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "ticket_id",
+              "required": true
+            },
+            {
+              "in": "body",
+              "name": "Ticket params",
+              "required": false,
+              "schema": {
+                "$ref": "#/definitions/ticket"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully updates existing Post"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "404": {
+              "description": "Resource not found"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "tickets"
+          ],
+          "summary": "Deletes single ticket",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "ticket_id",
+              "required": true
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully deleted Ticket"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "404": {
+              "description": "Resource not found"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        }
+      } 
 
   },
 
@@ -1473,7 +1631,36 @@
             "example": "Kampala Uganda"
           }
         }
+      },
+      
+      "ticket": {
+        "type": "object",
+        "required": [
+          "event",
+          "location",
+          "on"
+
+        ],
+        "properties": {
+          "event": {
+            "type": "string",
+            "example": "ticket event"
+          },
+          "location": {
+            "type": "integer",
+            "example": "Kampala"
+          },
+          "on": {
+            "type": "string",
+            "example": "21 July 2020"
+          },
+          "tickets_available": {
+            "type": "Integer",
+            "example": 20
+          }
+        }
       }
+    
 
 
   }

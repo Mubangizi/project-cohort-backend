@@ -6,4 +6,5 @@ from .course import CourseSchema
 from .account import AccountSchema
 from .business import BusinessSchema
 from .user import UserSchema
+from .ticket import TicketSchema
 
