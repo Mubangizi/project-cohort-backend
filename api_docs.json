@@ -970,8 +970,484 @@
             }
           }
         }
-      }
-
+      },
+      "/businesses": {
+        "get": {
+          "tags": [
+            "businesses"
+          ],
+          "summary": "Gets all Businesses",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully gets Businesses"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "businesses"
+          ],
+          "summary": "Adds a new business",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "Business params",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/business"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully added a new Business"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        }
+      },
+      
+      "/businesses/{business_id}":{
+        "get": {
+          "tags": [
+            "businesses"
+          ],
+          "summary": "Gets a single business",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "business_id",
+              "required": true
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully gets a single Business"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "404": {
+              "description": "Resource not found"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        },
+        "patch": {
+          "tags": [
+            "businesses"
+          ],
+          "summary": "Updates an existing business",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "business_id",
+              "required": true
+            },
+            {
+              "in": "body",
+              "name": "Business params",
+              "required": false,
+              "schema": {
+                "$ref": "#/definitions/business"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully updates existing Post"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "404": {
+              "description": "Resource not found"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "businesses"
+          ],
+          "summary": "Deletes single business",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "business_id",
+              "required": true
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully deleted Business"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "404": {
+              "description": "Resource not found"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        }
+      },
+      "/users": {
+        "get": {
+          "tags": [
+            "users"
+          ],
+          "summary": "Gets all Users",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully gets Users"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "users"
+          ],
+          "summary": "Adds a new user",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "User params",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/user"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully added a new User"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        }
+      },
+      
+      "/users/{user_id}":{
+        "get": {
+          "tags": [
+            "users"
+          ],
+          "summary": "Gets a single user",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "user_id",
+              "required": true
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully gets a single User"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "404": {
+              "description": "Resource not found"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        },
+        "patch": {
+          "tags": [
+            "users"
+          ],
+          "summary": "Updates an existing user",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "user_id",
+              "required": true
+            },
+            {
+              "in": "body",
+              "name": "User params",
+              "required": false,
+              "schema": {
+                "$ref": "#/definitions/user"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully updates existing Post"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "404": {
+              "description": "Resource not found"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "users"
+          ],
+          "summary": "Deletes single user",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "user_id",
+              "required": true
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully deleted User"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "404": {
+              "description": "Resource not found"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        }
+      },
+      "/tickets": {
+        "get": {
+          "tags": [
+            "tickets"
+          ],
+          "summary": "Gets all Tickets",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully gets Tickets"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "tickets"
+          ],
+          "summary": "Adds a new ticket",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "Ticket params",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/ticket"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully added a new Ticket"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        }
+      },
+      
+      "/tickets/{ticket_id}":{
+        "get": {
+          "tags": [
+            "tickets"
+          ],
+          "summary": "Gets a single ticket",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "ticket_id",
+              "required": true
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully gets a single Ticket"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "404": {
+              "description": "Resource not found"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        },
+        "patch": {
+          "tags": [
+            "tickets"
+          ],
+          "summary": "Updates an existing ticket",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "ticket_id",
+              "required": true
+            },
+            {
+              "in": "body",
+              "name": "Ticket params",
+              "required": false,
+              "schema": {
+                "$ref": "#/definitions/ticket"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully updates existing Post"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "404": {
+              "description": "Resource not found"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "tickets"
+          ],
+          "summary": "Deletes single ticket",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "ticket_id",
+              "required": true
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully deleted Ticket"
+            },
+            "401": {
+              "description": "invalid input, object invalid"
+            },
+            "404": {
+              "description": "Resource not found"
+            },
+            "500": {
+              "description": "Server error"
+            }
+          }
+        }
+      } 
 
   },
 
@@ -1107,6 +1583,85 @@
             "example": "accounts bank"
           }
         }
+      },
+      "business": {
+        "type": "object",
+        "required": [
+          "name",
+          "business_type"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "business name"
+          },
+          "business_type": {
+            "type": "integer",
+            "example": "business type"
+          },
+          "age": {
+            "type": "string",
+            "example": "20 years"
+          }
+        }
+      },
+      "user": {
+        "type": "object",
+        "required": [
+          "username",
+          "email",
+          "gender"
+
+        ],
+        "properties": {
+          "username": {
+            "type": "string",
+            "example": "username"
+          },
+          "email": {
+            "type": "integer",
+            "example": "user@email.com"
+          },
+          "gender": {
+            "type": "string",
+            "example": "Male"
+          },
+          "address": {
+            "type": "string",
+            "example": "Kampala Uganda"
+          }
+        }
+      },
+      
+      "ticket": {
+        "type": "object",
+        "required": [
+          "event",
+          "location",
+          "on"
+
+        ],
+        "properties": {
+          "event": {
+            "type": "string",
+            "example": "ticket event"
+          },
+          "location": {
+            "type": "integer",
+            "example": "Kampala"
+          },
+          "on": {
+            "type": "string",
+            "example": "21 July 2020"
+          },
+          "tickets_available": {
+            "type": "Integer",
+            "example": 20
+          }
+        }
       }
+    
+
+
   }
 }  

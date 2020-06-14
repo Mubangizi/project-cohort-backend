@@ -10,6 +10,8 @@ from app.models.consultant import Consultant
 from app.models.sale import Sale
 from app.models.course import Course
 from app.models.account import Account
+from app.models.business import Business
+from app.models.ticket import Ticket
 
 
 # register app and db with migration class
