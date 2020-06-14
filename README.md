@@ -58,3 +58,4 @@ Run the application with this command
 
 Through your browser go to link `localhost:<flask_port>/apidocs`.
 
+For the deployed version of the Api, [click here](https://project-cohort-backend.herokuapp.com/apidocs/)
