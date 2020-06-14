@@ -24,8 +24,7 @@ def create_app(config_name):
 
     # register app with the db
     db.init_app(app)
-    print(app.config)
-
+    print(app.config);
     # initialize api resources
     api.init_app(app)
 
@@ -64,7 +63,7 @@ def create_app(config_name):
 
 
 # create app instance using running config
-app = create_app('production')
+app = create_app(os.getenv('FLASK_ENV') or 'production')
 
 if __name__ == '__main__':
     app.run()
