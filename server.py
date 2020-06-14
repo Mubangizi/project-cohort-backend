@@ -62,7 +62,7 @@ def create_app(config_name):
 
 
 # create app instance using running config
-app = create_app(os.getenv('FLASK_ENV') or 'production')
+app = create_app(os.getenv('FLASK_ENV'))
 
 if __name__ == '__main__':
     app.run()
